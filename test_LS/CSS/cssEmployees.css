@@ -1,0 +1,124 @@
+﻿.cards tbody tr {
+	float: left;
+	width: 19rem;
+	margin: 0.5rem;
+	border: 0.0625rem solid rgba(0, 0, 0, .125);
+	border-radius: .25rem;
+	box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.cards tbody td {
+	display: block;
+}
+
+.cards thead {
+	display: none;
+}
+
+.cards td:before {
+	content: attr(data-label);
+	position: relative;
+	float: left;
+	color: #808080;
+	min-width: 4rem;
+	margin-left: 0;
+	margin-right: 1rem;
+	text-align: left;
+}
+
+tr.selected td:before {
+	color: #CCC;
+}
+
+.table .avatar {
+	width: 50px;
+}
+
+.cards .avatar {
+	width: 150px;
+	margin: 15px;
+}
+
+
+/*Add  employee*/
+
+/*Trigger Button*/
+.AddEmployee-trigger {
+	color: #fff;
+	background: #577bf9;
+	padding: 5px 10px;
+	border-radius: 5px;
+	position: relative;
+	/*top: 50%;*/
+}
+
+/*Modal*/
+h4 {
+	font-weight: bold;
+	color: #000;
+}
+
+.close {
+	color: #000;
+	transform: scale(1.2)
+}
+
+.modal-content {
+	font-weight: bold;
+	background: #fff;
+	padding: 5% 5% 5% 5%;
+}
+
+.form-control {
+	margin: 2em 0;
+}
+
+	.form-control:hover, .form-control:focus {
+		box-shadow: none;
+		border-color: #eee;
+	}
+
+input[type=text], input[type=tel], select {
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	border-bottom: 2px solid #909cb4;
+	padding-left: 0;
+	font-weight: normal;
+	background: transparent;
+	width: 100%;
+	color: #909cb4;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: #909cb4;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+	font-weight: bold;
+	color: #fff;
+}
+
+.AddEmployee {
+	padding: 6px 50px;
+	border-radius: 5px;
+	background: #577bf9;
+	color: #fff;
+	font-weight: bold;
+	margin-top: 3em;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+	.AddEmployee:hover {
+		background: #577bf9;
+		color: #fff;
+	}
+
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: #fff;
+}

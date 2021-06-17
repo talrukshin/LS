@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<link href="/CSS/css.css" rel="stylesheet" />
+	<script src="../Scripts/ajaxCalls.js"></script>
+	<script src="../Scripts/JS/JS_login.js"></script>
+
+</head>
+<body>
+	<div class="login-form">
+
+		<h2 class="text-center">Sign In</h2>
+		<br /><br /><br/>
+
+		<form id="formLogin">
+
+			<div class="avatar">
+
+				<img src="/img/img1.png" alt="Avatar">
+
+			</div>
+			<br /><br />
+
+
+			<div class="col-12 form-group mb-3">
+				<input name="email" type="email" value="" class="input form-control" id="email" placeholder="Email" aria-label="email" aria-describedby="basic-addon1" required />
+			</div>
+
+			<div class="col-12 form-group">
+				<input id="pass_log_id" type="password" name="pass" value="" placeholder="Password" aria-label="password" class="input form-control" required>
+				<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
+			</div>
+			<input class="btn btn-primary" type="submit" value="Sign In" />
+
+			<br />
+			<span class="text-center"><a href="#">Forgot password?</a></span>
+
+		</form>
+		<p class="text-center">Don't have an account? <a href="SignUp.html">Sign Up</a></p>
+
+	</div>
+</body>
+</html>
