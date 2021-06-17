@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+	<title>Managing Employees</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+	<link href="/Scripts/table_res/datatables.min.css" rel="stylesheet" />
+	<script src="/Scripts/table_res/datatables.min.js"></script>
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script src="../Scripts/ajaxCalls.js"></script>
+	<link href="../CSS/cssEmployees.css" rel="stylesheet" />
+
+	
+	<style></style>
+
+
+	
+	<script src="../Scripts/JS/JS_show_employee.js"></script>
+
+</head>
+<body>
+
+
+	<div class="container">
+
+		<br>
+		<span style="font-size:30px; float: left;"><strong>Managing Employees</strong></span>
+		<a style="float: right;" class="AddEmployee-trigger" href="#" data-target="#AddEmployee" data-toggle="modal">+ Add Employee</a>
+		<br /><br /><br /><br />
+		<a style="float: left;" class="AddEmployee-trigger" href="ManagingEmployees.html">Edit employees page >></a>
+		<br /><br />
+		<table id="employeeTable" class="table table-sm table-hover" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th></th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Phone</th>
+					<th>Address</th>
+					<th>Roll</th>
+					<th>Start Date</th>
+				
+					
+				</tr>
+			</thead>
+		</table>
+
+	</div>
+
+	<!--Add Employee -->
+
+
+	<div id="AddEmployee" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+				<div class="modal-body">
+					<button data-dismiss="modal" class="close">&times;</button>
+					<h4>Add Employee</h4>
+					<form id="insertForm">
+						<input type="text" id="firstName" name="firstName" class="firstName form-control" placeholder="First Name" required />
+						<input type="text" id="lastName" name="lastName" class="lastName form-control" placeholder="Last Name" required />
+						
+						<input type="tel" class="phone form-control" placeholder="Phone" id="phone" name="phone"
+							   pattern="[0]{1}[0-9]{2}[0-9]{3}[0-9]{4}"
+							   oninvalid="this.setCustomValidity('Format should be 0ddddddddd')"
+							   oninput="this.setCustomValidity('')" required/>
+						
+						<input type="text" id="address" name="address" class="address form-control" placeholder="Address" required />
+						<select id="Rollsel" required>
+							<option value="">Roll</option>
+							<option value="HR">HR</option>
+							<option value="Developer">Developer</option>
+							<option value="Designer">Designer</option>
+							
+
+						</select>
+						<input class="btn AddEmployee" type="submit" value="Add" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

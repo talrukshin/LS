@@ -47,7 +47,7 @@ namespace test_LS.Controllers
         // POST: api/User
         [HttpPost]
         [Route("api/User")]
-        public void Post([FromBody]User u)
+        public bool Post([FromBody]User u)
         {
             try
             {
@@ -55,18 +55,38 @@ namespace test_LS.Controllers
                 var database = dbClient.GetDatabase("db_ls");
                 var collection = database.GetCollection<BsonDocument>("User");
 
-                var document = new BsonDocument {
-                { "Email", u.Email },
-                { "FirstName", u.FirstName } ,
-                { "LastName", u.LastName },
-                { "Password", u.Password },
-               };
 
-                collection.InsertOne(document);
+                var filter = Builders<BsonDocument>.Filter.Eq("Email", u.Email);
+                var doc = collection.Find(filter).FirstOrDefault();
+
+
+                if (doc == null) //אין משתמש כזה
+                {
+                    var document = new BsonDocument {
+                        { "Email", u.Email },
+                        { "FirstName", u.FirstName } ,
+                        { "LastName", u.LastName },
+                        { "Password", u.Password },
+                       };
+
+                    collection.InsertOne(document);
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+
+                }
+
+
+
+
+
             }
             catch (Exception ex)
             {
-
+                return false;
             }
 
 

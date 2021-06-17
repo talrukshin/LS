@@ -248,9 +248,12 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\delete.png" />
     <Content Include="img\img1.png" />
     <Content Include="img\img2.png" />
+    <Content Include="img\update.png" />
     <Content Include="mongocrypt.dll" />
+    <Content Include="Pages\show_Employees.html" />
     <Content Include="Pages\ManagingEmployees.html" />
     <Content Include="Pages\login.html" />
     <Content Include="ManagingEmployes.html" />
@@ -283,6 +286,7 @@
     <Content Include="libmongocrypt.dylib" />
     <None Include="Properties\PublishProfiles\talrukshinLS - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\JS\JS_show_employee.js" />
     <Content Include="Scripts\JS\JS_employee.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

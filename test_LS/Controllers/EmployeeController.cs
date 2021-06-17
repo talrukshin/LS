@@ -12,7 +12,6 @@ namespace test_LS.Controllers
 {
     public class EmployeeController : ApiController
     {
-
         // GET: api/Employee
         [HttpGet]
         [Route("api/Employee")]
@@ -41,12 +40,7 @@ namespace test_LS.Controllers
                     e.StartDate = item.StartDate;
 
                     listEmployees.Add(e);
-                }
-
-                //filter - טוב לעידכוןן לפי לקוח ספציפי
-                //var filter = Builders<BsonDocument>.Filter.Eq("_id", "10006546");
-                //var doc = collection.Find(filter).FirstOrDefault();
-
+                }                          
 
                 return listEmployees;
             }
@@ -66,7 +60,6 @@ namespace test_LS.Controllers
         {
             try
             {
-                
                 MongoClient dbClient = new MongoClient("mongodb+srv://tal:tal54321@cluster-tal.hdscb.mongodb.net/db_ls?retryWrites=true&w=majority");
                 var database = dbClient.GetDatabase("db_ls");
                 var collection = database.GetCollection<BsonDocument>("Employees");
@@ -80,27 +73,64 @@ namespace test_LS.Controllers
                     { "Roll", e.Roll },
                     { "StartDate", DateTime.Today },
                 };
-
                 collection.InsertOne(document);
-
             }
             catch (Exception)
             {
+            }
+        }
 
-
+        [HttpPost]
+        [Route("api/Employee/{phone}")]
+        // POST: api/Employee
+        public string Postdelete(string phone)
+        {
+            try
+            {
+                MongoClient dbClient = new MongoClient("mongodb+srv://tal:tal54321@cluster-tal.hdscb.mongodb.net/db_ls?retryWrites=true&w=majority");
+                var database = dbClient.GetDatabase("db_ls");
+                var collection = database.GetCollection<BsonDocument>("Employees");
+                
+                var deleteFilter = Builders<BsonDocument>.Filter.Eq("Phone", phone);
+                collection.DeleteOne(deleteFilter);
+                return phone;
+            }
+            catch (Exception)
+            {
+                return "Server error";
             }
 
         }
 
 
-        // PUT: api/Employee/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("api/Employee/{phone}/{FirstName}/{LastName}/{Address}")]
+        // POST: api/Employee
+        public void PostUpdate(string phone, string FirstName, string LastName, string Address)
         {
+            try
+            {
+                MongoClient dbClient = new MongoClient("mongodb+srv://tal:tal54321@cluster-tal.hdscb.mongodb.net/db_ls?retryWrites=true&w=majority");
+                var database = dbClient.GetDatabase("db_ls");
+                var collection = database.GetCollection<BsonDocument>("Employees");
+
+                var filter = Builders<BsonDocument>.Filter.Eq("Phone", phone);
+
+                var update = Builders<BsonDocument>.Update.Set("FirstName", FirstName).Set("LastName", LastName).Set("Address", Address);
+
+                collection.UpdateOne(filter, update);
+
+               
+            }
+            catch (Exception)
+            {
+              
+            }
+
         }
 
-        // DELETE: api/Employee/5
-        public void Delete(int id)
-        {
-        }
+
+
+
     }
 }

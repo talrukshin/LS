@@ -38,22 +38,66 @@
 		<br>
 		<span style="font-size:30px; float: left;"><strong>Managing Employees</strong></span>
 		<a style="float: right;" class="AddEmployee-trigger" href="#" data-target="#AddEmployee" data-toggle="modal">+ Add Employee</a>
-		<br /><br /><br /><br />
-
+		<br /><br /><br /><br /><br />
+			
+		<a style="float: left;" class="AddEmployee-trigger" href="show_Employees.html">Show employees page >></a>
+		
+		<br /><br />
 		<table id="employeeTable" class="table table-sm table-hover" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th></th>
-					<th>FirstName</th>
-					<th>LastName</th>
+					<th>First Name</th>
+					<th>Last Name</th>
 					<th>Phone</th>
 					<th>Address</th>
 					<th>Roll</th>
-					<th>StartDate</th>
+					<th>Start Date</th>
 					<th></th>
 				</tr>
 			</thead>
 		</table>
+
+
+		<!--edit-->
+
+		<div id="editDiv">
+			
+			<form id="editForm">
+				<div class="form-group row">
+
+					<div class="form-group col-sm-3">
+						<label for="phoneEdit">Phone</label>
+						<input type="tel" class="form-control" id="phoneEdit" placeholder="Phone" disabled/>
+					</div>
+					<div class="form-group col-sm-3">
+						<label for="fNameEdit">First Name</label>
+						<input type="text" class="form-control" id="fNameEdit" placeholder="First Name" />
+					</div>
+					<div class="form-group col-sm-3">
+						<label for="lNameEdit">Last Name</label>
+						<input type="text" class="form-control" id="lNameEdit" placeholder="Last Name" />
+					</div>
+					
+					<div class="form-group col-sm-3">
+						<label for="addressEdit">Address</label>
+						<input type="text" class="form-control" id="addressEdit" placeholder="Address" />
+					</div>
+				
+									
+				</div>
+
+
+			
+				<button type="submit" class="btn btn-primary btn-lg" id="saveBTN">Save</button>
+
+			</form>
+		</div>
+
+
+
+
+
 
 	</div>
 
