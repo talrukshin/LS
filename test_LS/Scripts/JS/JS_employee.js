@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-
+	
 	ajaxCall("GET", "../api/Employee", "", getSuccess, error);
 	$("#insertForm").submit(f1);
 
@@ -8,11 +8,16 @@
 	$("#editForm").submit(fEdit);
 	$("#editDiv").hide();
 
+
+	
+	
+
 });
 
 
 
 $(window).ready(function () {
+
 	var num = 1;
 	$(window).resize(function () {
 		var wi = $(window).width();
@@ -23,6 +28,7 @@ $(window).ready(function () {
 				$(".btnChange").click();
 				num = 2;
 			}
+			//$(".btnChange").hide();
 			
 		}
 	})
@@ -200,9 +206,16 @@ function AddEmployee() {
 }
 
 function success(data) {
-	swal("Added Successfuly!", ":)", "success");
 
-	setTimeout(function () { location.reload(); }, 3000);
+	if (data) {
+		swal("Added Successfuly!", ":)", "success");
+		setTimeout(function () { location.reload(); }, 3000);
+	} else {
+		swal("The Phone is already registered in the system", "", "error");
+	}
+	
+
+	
 
 }
 
