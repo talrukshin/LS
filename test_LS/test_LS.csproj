@@ -256,7 +256,6 @@
     <Content Include="Pages\show_Employees.html" />
     <Content Include="Pages\ManagingEmployees.html" />
     <Content Include="Pages\login.html" />
-    <Content Include="ManagingEmployes.html" />
     <Content Include="Scripts\ajaxCalls.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -298,7 +297,6 @@
     <Content Include="Scripts\table_res\datatables.min.css" />
     <Content Include="Scripts\table_res\datatables.min.js" />
     <Content Include="Pages\SignUp.html" />
-    <Content Include="test.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

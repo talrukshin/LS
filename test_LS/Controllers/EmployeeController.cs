@@ -56,7 +56,7 @@ namespace test_LS.Controllers
         [HttpPost]
         [Route("api/Employee")]
         // POST: api/Employee
-        public void Post([FromBody]Employee e)
+        public bool Post([FromBody]Employee e)
         {
             try
             {
@@ -64,19 +64,31 @@ namespace test_LS.Controllers
                 var database = dbClient.GetDatabase("db_ls");
                 var collection = database.GetCollection<BsonDocument>("Employees");
 
-                var document = new BsonDocument {
-                    { "Img", e.Img },
-                    { "FirstName", e.FirstName } ,
-                    { "LastName", e.LastName },
-                    { "Phone", e.Phone },
-                    { "Address", e.Address },
-                    { "Roll", e.Roll },
-                    { "StartDate", DateTime.Today },
-                };
-                collection.InsertOne(document);
+                var filter = Builders<BsonDocument>.Filter.Eq("Phone", e.Phone);
+                var doc = collection.Find(filter).FirstOrDefault();
+                if (doc== null)
+                {
+                    var document = new BsonDocument {
+                        { "Img", e.Img },
+                        { "FirstName", e.FirstName } ,
+                        { "LastName", e.LastName },
+                        { "Phone", e.Phone },
+                        { "Address", e.Address },
+                        { "Roll", e.Roll },
+                        { "StartDate", DateTime.Today },
+                    };
+                    collection.InsertOne(document);
+
+                    return true;
+
+                }
+
+                return false;
+
             }
             catch (Exception)
             {
+                return false;
             }
         }
 

@@ -146,12 +146,17 @@ function AddEmployee() {
 
 }
 function success(data) {
-	swal("Added Successfuly!", ":)", "success");
 
+	if (data) {
+		swal("Added Successfuly!", ":)", "success");
+		setTimeout(function () { location.reload(); }, 3000);
+	} else {
+		swal("The Phone is already registered in the system", "", "error");
+	}
 	
-	setTimeout(function () { location.reload(); }, 3000);
-
 }
+
+
 function error(err) {
 	alert("error" + err);
 }
